@@ -27,12 +27,18 @@ enum macro_keycodes {
 
 #define KC_ KC_TRNS
 #define KC_RST RESET
-#define KC_L_SPC LT(_LOWER, KC_SPC) // lower
-#define KC_R_ENT LT(_RAISE, KC_ENT) // raise
-#define KC_G_JA LGUI_T(KC_LANG1) // cmd or win
-#define KC_G_EN LGUI_T(KC_LANG2) // cmd or win
+
+
+#define KC_L_DEL LT(_LOWER, KC_DEL) // lower
+#define KC_R_BS LT(_RAISE, KC_BSPC) // raise
+/* #define KC_G_JA LGUI_T(KC_LANG1) // cmd or win */
+/* #define KC_G_EN LGUI_T(KC_LANG2) // cmd or win */
 #define KC_C_BS LCTL_T(KC_BSPC) // ctrl
-#define KC_A_DEL ALT_T(KC_DEL) // alt
+#define KC_C_TAB LCTL_T(KC_TAB) // ctrl
+#define KC_L_SPC LSFT_T(KC_SPC) // SandS left
+#define KC_R_ENT RSFT_T(KC_ENT) // SandS right
+#define KC_A_EN LALT_T(KC_LANG2) // eisu
+#define KC_G_JA RGUI_T(KC_LANG1) // kana
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -40,11 +46,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------+--------+---------+--------+---------+--------.   ,--------+---------+--------+---------+--------+--------.
      KC_ESC , KC_Q   , KC_W    , KC_E   , KC_R    , KC_T   ,     KC_Y   , KC_U    , KC_I   , KC_O    , KC_P   , KC_MINS,
   //|--------+--------+---------+--------+---------+--------|   |--------+---------+--------+---------+--------+--------|
-     KC_TAB , KC_A   , KC_S    , KC_D   , KC_F    , KC_G   ,     KC_H   , KC_J    , KC_K   , KC_L    , KC_SCLN, KC_QUOT,
+     KC_C_TAB , KC_A   , KC_S    , KC_D   , KC_F    , KC_G   ,     KC_H   , KC_J    , KC_K   , KC_L    , KC_SCLN, KC_QUOT,
   //|--------+--------+---------+--------+---------+--------|   |--------+---------+--------+---------+--------+--------|
      KC_LSFT, KC_Z   , KC_X    , KC_C   , KC_V    , KC_B   ,     KC_N   , KC_M    , KC_COMM, KC_DOT  , KC_SLSH, KC_RSFT,
   //`--------+--------+---------+--------+---------+--------/   \--------+---------+--------+---------+--------+--------'
-                       KC_A_DEL, KC_G_EN, KC_L_SPC, KC_C_BS,     KC_C_BS, KC_R_ENT, KC_G_JA, KC_A_DEL
+                       KC_A_EN, KC_L_DEL, KC_LS_SPC, KC_C_BS,     KC_C_BS, KC_R_ENT, KC_R_BS, KC_G_JA
   //                 `----------+--------+---------+--------'   `--------+---------+--------+---------'
   ),
 
